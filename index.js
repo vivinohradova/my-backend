@@ -6,17 +6,19 @@ require("dotenv").config();
 const app = express();
 
 const PORT = process.env.PORT || 5000; // Render даст порт автоматически
-app.get("/", (req, res) => {
-  res.send("Backend работает 🎉");
-});
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 app.use(cors());
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Backend работает 🎉");
+});
 
 app.post("/create-checkout-session", async (req, res) => {
   try {
@@ -70,4 +72,8 @@ app.post("/create-checkout-session", async (req, res) => {
   }
 });
 
-app.listen(4242, () => console.log("Backend running on http://localhost:4242"));
+// app.listen(4242, () => console.log("Backend running on http://localhost:4242"));
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
