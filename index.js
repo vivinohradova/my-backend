@@ -61,8 +61,8 @@ app.post("/create-checkout-session", async (req, res) => {
           quantity: 1,
         },
       ],
-      success_url: "http://localhost:3000/ira/success",
-      cancel_url: "http://localhost:3000/ira/cancel",
+      success_url: "https://vivinohradova.github.io/ira/success",
+      cancel_url: "https://vivinohradova.github.io/ira/cancel",
     });
 
     res.json({ id: session.id });
